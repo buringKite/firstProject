@@ -32,7 +32,6 @@ You will be employer-ready if you can answer the following questions:
 2. What are objects in JavaScript and why are they important?
 3. What is a function?
 
-
 ## Learning Objectives
 You will be employer-competitive if you are able to:
 * Identify and declare variables containing primitive and object data types in JavaScript
@@ -41,14 +40,6 @@ You will be employer-competitive if you are able to:
 * Explain the importance of objects in JavaScript and create objects containing both properties and methods
 * Explain and implement the difference between function declarations and expressions
 * Explain and implement comparison and logical operators
-
-## Algorithms
-
-* 01-arithmetic - Create functions capable of different arithmetic operations.
-
-* 02-odd-or-even - Create a function that determines whether a number is odd or even.
-
-* 03-log-nums - Create a function that prints all whole numbers from 1 to a given number.
 
 ## Homework: Password Generator
 
