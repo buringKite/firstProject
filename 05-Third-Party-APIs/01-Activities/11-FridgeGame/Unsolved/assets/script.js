@@ -36,6 +36,9 @@ $(document).ready(function () {
     // 9. Give each "fridgeMagnet" the following classes: "letter fridge-color".
 
     // 10. Then chain the following code onto the "fridgeMagnet" variable: .text($(this).attr("data-letter"))
+    // event.target
+    // bubbling events.
+    // delegate events.
 
     // 11. Lastly append the fridgeMagnet variable to the "#display" div (provided);
 
