@@ -11,7 +11,7 @@
 
 ## Back-End Team
 
-* Do preliminary research on the [API](http://developer.nytimes.com/article_search_v2.json).
+* Do preliminary research on the [API](https://developer.nytimes.com/docs/articlesearch-product/1/routes/articlesearch.json/get).
 
 * Register for an API Key.
 
