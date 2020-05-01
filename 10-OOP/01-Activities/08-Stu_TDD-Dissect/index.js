@@ -1,4 +1,4 @@
-const Arithmetic = require("./arithmetic");
+const Arithmetic = require("./Arithmetic");
 
 const value = new Arithmetic(4)
   .plus(8)
