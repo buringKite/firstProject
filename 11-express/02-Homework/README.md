@@ -42,6 +42,10 @@ Application should allow users to view previously saved notes.
 
 Application should allow users to delete previously saved notes.
 
+## Deploying the App
+
+You will not be able to deploy your server side code on GitHub pages. This app should be deployed on Heroku. Carefully follow the [Heroku Guide](../04-Supplemental/HerokuGuide.md) for getting your app deployed on Heroku.
+
 - - -
 
 ## Commit Early and Often
@@ -68,7 +72,7 @@ We would like you to have well over 200 commits by graduation, so commit early a
 
 You are required to submit the following:
 
-* The URL of the deployed application
+* The URL of the deployed application. This should be the link to the url provided by Heroku. Be sure not to submit a link to the Heroku dashboard.
 
 * The URL of the GitHub repository
 
