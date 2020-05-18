@@ -1,49 +1,51 @@
 // Dependencies
-var express = require("express");
-var mysql = require("mysql");
+const express = require("express");
+const mysql = require("mysql2/promise");
 
 // Create express app instance.
-var app = express();
+const app = express();
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
-// MySQL DB Connection Information (remember to change this with our specific credentials)
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "",
-  database: "wizard_schools_db"
-});
+let connection;
 
-// Initiate MySQL Connection.
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
+// Create MySQL database connection
+const connectToDatabase = async () => {
+  try {
+    // MySQL DB Connection Information (remember to change this with our specific credentials)
+    connection = await mysql.createConnection({
+      host: "localhost",
+      port: 3306,
+      user: "root",
+      password: "password",
+      database: "schools_db"
+    });
+
+    console.log(`Connected to database with id ${connection.threadId}`);
+  } catch (error) {
+    console.log(error);
   }
-  console.log("connected as id " + connection.threadId);
-});
+};
 
 // Routes
-app.get("/", function(req, res) {
+app.get("/", async (req, res) => {
+  try {
+    // If the main route is hit, then we initiate a SQL query to grab all records.
+    // All of the resulting records are stored in the variable "result."
+    const [rows] = await connection.query("SELECT * FROM school");
 
-  // If the main route is hit, then we initiate a SQL query to grab all records.
-  // All of the resulting records are stored in the variable "result."
-  connection.query("SELECT * FROM schools", function(err, result) {
-    if (err) throw err;
     // We then begin building out HTML elements for the page.
-    var html = "<h1> Magical Schools </h1>";
+    let html = "<h1> Magical Schools </h1>";
 
     // Here we begin an unordered list.
     html += "<ul>";
 
     // We then use the retrieved records from the database to populate our HTML file.
-    for (var i = 0; i < result.length; i++) {
-      html += "<li><p> ID: " + result[i].id + "</p>";
-      html += "<p>School: " + result[i].name + " </p></li>";
+    for (const row of rows) {
+      html += "<li><p> ID: " + row.id + "</p>";
+      html += "<p>School: " + row.name + " </p></li>";
     }
 
     // We close our unordered list.
@@ -51,11 +53,17 @@ app.get("/", function(req, res) {
 
     // Finally we send the user the HTML file we dynamically created.
     res.send(html);
-  });
+
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
+// Start database connection
+connectToDatabase();
+
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
+app.listen(PORT, () => {
   // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+  console.log(`Server listening on: http://localhost:${PORT}`);
 });
