@@ -33,7 +33,7 @@ const connectToDatabase = async () => {
 };
 
 // Root get route
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const [rows] = await connection.query("SELECT * FROM task");
 
@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
 });
 
 // Post route -> back to home
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
   try {
     const [rows] = await connection.query("INSERT INTO task SET ?", req.body);
 
