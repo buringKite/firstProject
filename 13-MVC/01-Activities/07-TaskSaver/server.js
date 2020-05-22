@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 // Post route -> back to home
 app.post("/", (req, res) => {
   try {
-    const [rows] = await connection.query("INSERT INTO task SET ?", req.body.task);
+    const [rows] = await connection.query("INSERT INTO task SET ?", req.body);
 
     res.redirect("/");
 
