@@ -15,6 +15,8 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+let connection;
+
 const connectToDatabase = async () => {
   try {
     // MySQL DB Connection Information (remember to change this with our specific credentials)
