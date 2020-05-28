@@ -7,6 +7,7 @@
 const Book = require("../models/book.js");
 const express = require("express");
 const router = express.Router();
+const path = require("path");
 
 // HTML Routes
 // =============================================================
@@ -58,12 +59,12 @@ router.get("/api/authors/:author", async (req, res) => {
 });
 
 // Add sequelize code to get all "long" books (more than 150 pages) and return them as JSON
-router.get("/api/books/long", async (req, res) => {
+router.get("/api/long/books", async (req, res) => {
 
 });
 
 // Add sequelize code to get all "short" books (150 pages or less) and return them as JSON
-router.get("/api/books/short", async (req, res) => {
+router.get("/api/short/books", async (req, res) => {
 
 });
 

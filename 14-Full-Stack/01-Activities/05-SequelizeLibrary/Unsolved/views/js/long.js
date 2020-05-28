@@ -1,5 +1,5 @@
 // Make a get request to our api route that will return every "long" book (300 pages or more)
-$.get("/api/books/long", function(data) {
+$.get("/api/long/books", function(data) {
 
   // For each book that our server sends us back
   for (var i = 0; i < data.length; i++) {
