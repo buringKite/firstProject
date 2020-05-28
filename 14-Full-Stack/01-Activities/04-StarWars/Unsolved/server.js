@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory to be served
-app.use(express.static("views"));
+app.use(express.static("public"));
 
 // Routes
 // =============================================================
