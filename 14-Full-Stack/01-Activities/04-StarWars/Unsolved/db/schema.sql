@@ -10,7 +10,7 @@ CREATE DATABASE starwars_db;
 USE starwars_db;
 
 /* Create a table for all your star wars characters */
-CREATE TABLE characters (
+CREATE TABLE `character` (
 	id INTEGER AUTO_INCREMENT NOT NULL,
 	route_name VARCHAR(255) NOT NULL,
 	name VARCHAR(255) NOT NULL,

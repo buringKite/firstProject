@@ -9,7 +9,7 @@ const connection = require("./connection.js");
 // ORM
 // =============================================================
 
-const tableName = "characters";
+const tableName = "character";
 
 const orm = {
   // Here our ORM is creating a simple method for performing a query of the entire table.
