@@ -26,7 +26,7 @@ router.delete("/api/todos/:id", (req, res) => {
 });
 
 // PUT route for updating todos. We can access the updated todo in req.body
-router.put("/api/todos", (req, res) => {
+router.put("/api/todos/:id", (req, res) => {
 });
 
 module.exports = router;
