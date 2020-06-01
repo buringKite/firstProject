@@ -72,7 +72,7 @@ $(document).ready(function() {
   function updatePost(post) {
     $.ajax({
       method: "PUT",
-      url: "/api/posts",
+      url: "/api/posts/" + post.id,
       data: post
     })
       .then(function() {
