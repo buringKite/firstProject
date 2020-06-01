@@ -11,17 +11,27 @@ module.exports = (sequelize, DataTypes) => {
       body: {
         type: DataTypes.TEXT,
         allowNull: false,
-        len: [1]
+        validate: {
+          len: [1]
+        }
+      },
+      category: {
+        type: DataTypes.STRING,
+        defaultValue: "Personal"
       }
     },
     {
       freezeTableName: true,
-      timestamps: false
-    });
+      timestamps: true,
+      createdAt: "created_at",
+      updatedAt: "updated_at"
+    }
+  );
 
   Post.associate = (models) => {
     Post.belongsTo(models.author, {
       foreignKey: {
+        name: "author_id",
         allowNull: false
       }
     });

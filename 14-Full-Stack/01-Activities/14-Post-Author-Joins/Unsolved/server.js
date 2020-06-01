@@ -7,7 +7,7 @@
 const express = require("express");
 const db = require("./models");
 const authorController = require("./controllers/author-controller");
-const postController = require("./controllers/post-api-routes");
+const postController = require("./controllers/post-controller");
 
 // Sets up the Express App
 // =============================================================

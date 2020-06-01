@@ -42,7 +42,7 @@ $(document).ready(function() {
       body: bodyInput
         .val()
         .trim(),
-      AuthorId: authorSelect.val()
+      author_id: authorSelect.val()
     };
 
     // If we're updating a post run updatePost to update a post
